@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.margin-div {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.margin-div {
+    position: relative;
+}
+
+.wrapper-carousel {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 30px);
+    width: calc(100% - 30px);
+    border-radius: 50px;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+nav {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    background-color: #fff;
+    padding: 8px 8px 8px 44px;
+    opacity: 1 !important;
+    z-index: 999;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    width: fit-content;
+}
+
+li {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    margin: auto 0;
+    transition: .3s ease;
+    font-size: 20px;
+}
+
+li a {
+    text-decoration: none;
+    color: #000;
+    white-space: nowrap;
+}
+
+.fancy-btn {
+    background-color: #8AA573;
+    padding: 21px 36px 21px 36px;
+    border-radius: 50px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+    ul {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+
+    /*stejny okraje nahore i na strane u menu*/
+    li a {
+        font-size: 16px;
+    }
+
+    nav {
+        padding: 6px 6px 6px 25px;
+    }
+
+    .fancy-btn {
+        padding: 16px 28px 16px 28px;
+    }
+}
+@media screen and (max-width: 460px) {
+   ul{
+    flex-direction: column;
+   }
+   nav{
+    padding: 20px;
+    width: 86%;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+   }
+   li{
+    text-align: center;
+   }
+}

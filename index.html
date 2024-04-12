@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <title>Kam To Bude</title>
+</head>
+
+<body>
+    <section>
+        <div class="margin-div">
+            <nav>
+                <ul>
+                    <li><a href="#">Úvod</a></li>
+                    <li><a href="#">O mně</a></li>
+                    <li><a href="#">Jak to funguje</a></li>
+                    <li class="fancy-btn"><a href="#">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div class="wrapper-carousel fade-in" style="background-image: url('./images/alpy.jpg');"></div>
+        </div>
+    </section>
+
+
+
+    <script>
+        const images = [
+            './images/alpy.jpg',
+            './images/pariz.jpg',
+            './images/plaz.jpg',
+        ];
+
+        const carousel = document.querySelector('.wrapper-carousel');
+        let currentIndex = 0;
+
+        function changeBackground() {
+            const nextIndex = (currentIndex + 1) % images.length;
+
+            const nextImage = new Image();
+            nextImage.src = images[nextIndex];
+            nextImage.onload = function () {
+                carousel.style.backgroundImage = `url(${images[nextIndex]})`;
+
+                carousel.classList.remove('fade-in');
+                void carousel.offsetWidth;
+                carousel.classList.add('fade-in');
+
+                currentIndex = nextIndex;
+            };
+        }
+
+        window.onload = function () {
+            setInterval(changeBackground, 10000);
+        };
+
+    </script>
+</body>
+
+</html>
